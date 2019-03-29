@@ -23,7 +23,7 @@
     <ConfigurationType>Driver</ConfigurationType>
     <DriverType>KMDF</DriverType>
     <TARGETNAME>vchiq</TARGETNAME>
-    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
+    <DriverTargetPlatform>Universal</DriverTargetPlatform>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Label="PropertySheets">
@@ -76,21 +76,25 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <SignMode>Off</SignMode>
+    <EnablePkgGen>false</EnablePkgGen>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <SignMode>Off</SignMode>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)_build\</OutDir>
     <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\$(TargetName)\Out\</IntDir>
+    <EnablePkgGen>false</EnablePkgGen>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <SignMode>Off</SignMode>
+    <EnablePkgGen>false</EnablePkgGen>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <SignMode>Off</SignMode>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)_build\</OutDir>
+    <EnablePkgGen>false</EnablePkgGen>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>
@@ -114,6 +118,11 @@
       <EnablePREfast>true</EnablePREfast>
       <TreatWarningAsError>false</TreatWarningAsError>
     </ClCompile>
+    <PreBuildEvent>
+      <Command>mkdir "$(SolutionDir)$(Platform)\$(Configuration)_build\vchiq"
+copy "$(SolutionDir)$(Platform)\$(Configuration)_build\vchiq_arm_kern.dll" "$(SolutionDir)$(Platform)\$(Configuration)_build\vchiq"
+copy "$(SolutionDir)$(Platform)\$(Configuration)_build\vcos_win32_kern.dll" "$(SolutionDir)$(Platform)\$(Configuration)_build\vchiq"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <ClCompile>
@@ -137,6 +146,11 @@
       <EnablePREfast>true</EnablePREfast>
       <TreatWarningAsError>false</TreatWarningAsError>
     </ClCompile>
+    <PreBuildEvent>
+      <Command>mkdir "$(SolutionDir)$(Platform)\$(Configuration)_build\vchiq"
+copy "$(SolutionDir)$(Platform)\$(Configuration)_build\vchiq_arm_kern.dll" "$(SolutionDir)$(Platform)\$(Configuration)_build\vchiq"
+copy "$(SolutionDir)$(Platform)\$(Configuration)_build\vcos_win32_kern.dll" "$(SolutionDir)$(Platform)\$(Configuration)_build\vchiq"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="@(ClSourceFiles)" Exclude="@(ClCompile)" />
