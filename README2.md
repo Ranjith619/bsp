@@ -1,4 +1,3 @@
-=======
 Raspberry Pi Board Support Package for Windows 10 IoT Core
 ==============
 
