@@ -19,16 +19,12 @@ PWM|bcm2836pwm.sys|Working
 Mini UART|pi_miniuart.sys|Working
 PL011 UART|SerPL011.sys|Loads, but not tested
 Mailbox Interface|rpiq.sys|Working
-VCHIQ|vchiq.sys|Loads, but not tested
+VCHIQ|vchiq.sys|Not Working
 
 ### Notes
 - "Working" means basic functionality works
 - "Loads, but not tested" means the driver loads, but its functionality is not tested.
-- In order to get bcmauxspi.sys to load, you'll need to set the following registry key:
-```
-HKLM\SYSTEM\CurrentControlSet\Services\bcmauxspi\Parameters
-DWORD ForceEnable=1
-```
+- "Not Working" means, well, it does not work ;). Don't install it if you don't know what you are doing.
 - Closed source drivers like USB/LAN/WiFi/Bluetooth are not included in this repo. \
 There is an open-source USB driver by NTAuthority and maintained by Googulator at [dwusb](https://github.com/Googulator/dwusb).
 
@@ -44,8 +40,3 @@ Unlike IoT Core, you'll need to call these APIs in a full trust desktop applicat
 RPIQ is at `\\.\RPIQ`, you can do handy things like query CPU frequency and temperature with it.
 
 Samples are provided in [rpi3win10demos](https://github.com/driver1998/rpi3win10demos).
-
-# Networking over UART
-Networking is possible through modem emulation over UART, though slow (literal dial-up speeds, bring back the 90s :) ) and not stable.
-
-For details, check out [Wiki](https://github.com/driver1998/bsp/wiki/Modem-Emulation-and-Networking).
