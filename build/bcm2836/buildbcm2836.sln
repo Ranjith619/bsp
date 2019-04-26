@@ -32,6 +32,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bcm2836sdhc", "..\..\driver
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bcmauxspi", "..\..\drivers\spi\bcmauxspi\bcmauxspi.vcxproj", "{74219FC7-92D3-4477-A729-A5CEB965B338}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RpiLanPropertyChange", "..\..\drivers\RpiLanPropertyChange\bcm2836\RpiLanPropertyChange.vcxproj", "{AC8330FD-8CB9-4210-9EE0-8B51E972860F}"
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vchiq", "..\..\drivers\misc\vchiq\vchiq.vcxproj", "{7FED7DE7-D8AE-448B-A7D9-ED99DCDB1F79}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2DF1927E-BBD9-40FD-9658-88C9FB1C9340} = {2DF1927E-BBD9-40FD-9658-88C9FB1C9340}
