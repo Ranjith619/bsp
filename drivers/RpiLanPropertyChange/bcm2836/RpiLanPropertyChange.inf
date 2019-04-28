@@ -1,0 +1,60 @@
+;
+; RpiLanPropertyChange.inf
+;
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = SYSTEM
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = "MS-IOT"
+DriverVer   = 04/27/2019,1.0.0.0000
+CatalogFile = RpiLanPropertyChange.cat
+
+[DestinationDirs]
+RpiLanPropertyChange_Files = 11  ;System32
+
+[SourceDisksNames]
+0 = "Disk"
+
+[SourceDisksFiles]
+RpiLanPropertyChange.dll = 0,,
+
+[DefaultInstall.NTARM64]
+CopyFiles = RpiLanPropertyChange_Files
+
+[RpiLanPropertyChange_Files]
+RpiLanPropertyChange.dll
+
+[RpiLanPropertyChange_Inst.Services]
+AddService = RpiLanPropertyChange,0x00000000,RpiLanPropertyChange_Service,
+
+[RpiLanPropertyChange_Service]
+DisplayName   = "RpiLanPropertyChange"
+Description   = "Update Lan MAC address according to registry setting"
+ServiceType   = 0x110
+StartType     = 2
+ErrorControl  = 1
+ServiceBinary = "%%systemroot%%\system32\svchost.exe -k NetworkService"
+AddReg    = RpiLanPropertyChange_Reg
+
+[RpiLanPropertyChange_Reg]
+HKLM, System\ControlSet001\Services\RpiLanPropertyChange             , DisplayName       , %REG_SZ%              ,  "RpiLanPropertyChange"
+HKLM, System\ControlSet001\Services\RpiLanPropertyChange             , Description       , %REG_SZ%              ,  "Update Lan MAC address according to registry setting"
+HKLM, System\ControlSet001\Services\RpiLanPropertyChange             , PreshutdownTimeout, %REG_DWORD%           ,  0x4E20
+HKLM, System\ControlSet001\Services\RpiLanPropertyChange             , ImagePath         , %REG_EXPAND_SZ%       ,  "%%systemroot%%\system32\svchost.exe -k NetworkService"
+HKLM, System\ControlSet001\Services\RpiLanPropertyChange             , Type              , %REG_DWORD%           ,  0x0020
+HKLM, System\ControlSet001\Services\RpiLanPropertyChange             , Start             , %REG_DWORD%           ,  0x0002
+HKLM, System\ControlSet001\Services\RpiLanPropertyChange             , ErrorControl      , %REG_DWORD%           ,  0x0001
+HKLM, System\ControlSet001\Services\RpiLanPropertyChange\Parameters  , ServiceDll        , %REG_EXPAND_SZ%       ,  "%%SystemRoot%%\System32\RpiLanPropertyChange.dll"
+HKLM, System\ControlSet001\Services\RpiLanPropertyChange             , ObjectName        , %REG_SZ%              ,  "LocalSystem"
+HKLM, Software\Microsoft\Windows NT\CurrentVersion\Svchost           , NetworkService    , %REG_APPEND_MULTI_SZ% ,  "RpiLanPropertyChange"
+
+
+[Strings]
+ProviderString = "MS-IOT"
+
+REG_SZ               = 0x00000000
+REG_MULTI_SZ         = 0x00010000
+REG_APPEND_MULTI_SZ  = 0x00010008
+REG_EXPAND_SZ        = 0x00020000
+REG_DWORD            = 0x00010001
+REG_BINARY           = 0x00000001

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2000
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bcmgpio", "..\..\drivers\gpio\bcm2836\bcmgpio.vcxproj", "{381A9C49-78D7-4B6F-98CD-5084F70B1207}"
 EndProject
@@ -106,6 +106,10 @@ Global
 		{74219FC7-92D3-4477-A729-A5CEB965B338}.Debug|ARM64.Build.0 = Debug|ARM64
 		{74219FC7-92D3-4477-A729-A5CEB965B338}.Release|ARM64.ActiveCfg = Release|ARM64
 		{74219FC7-92D3-4477-A729-A5CEB965B338}.Release|ARM64.Build.0 = Release|ARM64
+		{AC8330FD-8CB9-4210-9EE0-8B51E972860F}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{AC8330FD-8CB9-4210-9EE0-8B51E972860F}.Debug|ARM64.Build.0 = Debug|ARM64
+		{AC8330FD-8CB9-4210-9EE0-8B51E972860F}.Release|ARM64.ActiveCfg = Release|ARM64
+		{AC8330FD-8CB9-4210-9EE0-8B51E972860F}.Release|ARM64.Build.0 = Release|ARM64
 		{7FED7DE7-D8AE-448B-A7D9-ED99DCDB1F79}.Debug|ARM64.ActiveCfg = Debug|ARM64
 		{7FED7DE7-D8AE-448B-A7D9-ED99DCDB1F79}.Debug|ARM64.Build.0 = Debug|ARM64
 		{7FED7DE7-D8AE-448B-A7D9-ED99DCDB1F79}.Release|ARM64.ActiveCfg = Release|ARM64
